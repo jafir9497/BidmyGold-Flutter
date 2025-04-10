@@ -36,7 +36,7 @@ dependencies:
   firebase_auth: ^5.0.0
   get_storage: ^2.1.1
   intl: ^0.19.0
-  http: ^1.2.1
+  http: ^1.2.0 # For making HTTP requests
   image_picker: ^1.1.2 # For picking images/files
   firebase_storage: ^12.2.0 # For uploading files
   # The following adds the Cupertino Icons font to your application.

@@ -10,17 +10,14 @@ class OnboardingController extends GetxController {
 
   final List<Map<String, String>> onboardingPages = [
     {
-      'image': 'assets/images/onboarding_upload.png',
       'title': 'onboarding_title_1',
       'description': 'onboarding_desc_1',
     },
     {
-      'image': 'assets/images/onboarding_bids.png',
       'title': 'onboarding_title_2',
       'description': 'onboarding_desc_2',
     },
     {
-      'image': 'assets/images/onboarding_connect.png',
       'title': 'onboarding_title_3',
       'description': 'onboarding_desc_3',
     },

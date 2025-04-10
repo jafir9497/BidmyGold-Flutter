@@ -130,50 +130,43 @@ class AuthController extends GetxController {
 
   // Method to send OTP
   Future<void> sendOtp() async {
-    // Validate mobile number
-    String mobile = mobileController.text.trim();
-    if (mobile.isEmpty || mobile.length != 10) {
+    if (mobileController.text.isEmpty || mobileController.text.length != 10) {
       Get.snackbar('Error', 'Please enter a valid 10-digit mobile number',
           snackPosition: SnackPosition.BOTTOM);
       return;
     }
 
     isLoading.value = true;
-    // Format phone number with country code
     mobileNumber.value = '+91${mobileController.text}';
 
     try {
       await _auth.verifyPhoneNumber(
         phoneNumber: mobileNumber.value,
         verificationCompleted: (PhoneAuthCredential credential) async {
-          // Auto-retrieval or instant verification (Android only)
-          isLoading.value = true;
+          // Auto-verification if Android supports it
           await _signInWithCredential(credential);
-          isLoading.value = false;
         },
         verificationFailed: (FirebaseAuthException e) {
           isLoading.value = false;
-          Get.snackbar('Error', 'Verification Failed: ${e.message}',
+          Get.snackbar('Error', e.message ?? 'Verification failed',
               snackPosition: SnackPosition.BOTTOM);
-          isOtpSent.value = false; // Reset state
+          isOtpSent.value = false;
         },
         codeSent: (String verificationId, int? resendToken) {
           this.verificationId.value = verificationId;
           this.resendToken.value = resendToken;
           isLoading.value = false;
-          isOtpSent.value = true; // Move to OTP screen
+          isOtpSent.value = true;
           startResendTimer();
-          Get.toNamed(
-              Routes.OTP); // Navigate to OTP Screen (Need to define this route)
+          Get.toNamed(Routes.OTP); // Navigate to OTP Screen (Need to define this route)
           Get.snackbar('Success', 'OTP sent to ${mobileNumber.value}',
               snackPosition: SnackPosition.BOTTOM);
         },
         codeAutoRetrievalTimeout: (String verificationId) {
           this.verificationId.value = verificationId;
-          // Auto-retrieval timeout (can still manually enter OTP)
         },
-        timeout: const Duration(seconds: 60), // Timeout duration
-        forceResendingToken: resendToken.value, // Use for resend OTP
+        timeout: const Duration(seconds: 60),
+        forceResendingToken: resendToken.value,
       );
     } catch (e) {
       isLoading.value = false;

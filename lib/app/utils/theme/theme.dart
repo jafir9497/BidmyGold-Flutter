@@ -7,9 +7,7 @@ class AppTheme {
 
     // Define the default brightness and colors.
     colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFFFFC107), // Amber/Gold - Primary Seed Color
-      // You can optionally define other colors like secondary, error, etc.
-      // secondary: Colors.blue,
+      seedColor: const Color(0xFF000000), // Dark theme primary color
       brightness: Brightness.light,
     ),
 
@@ -18,16 +16,18 @@ class AppTheme {
 
     // Define the default `TextTheme`.
     textTheme: const TextTheme(
-      displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-      titleLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
-      bodyMedium: TextStyle(fontSize: 14.0),
+      displayLarge: TextStyle(
+          fontSize: 60.0, fontWeight: FontWeight.bold, color: Colors.black),
+      titleLarge: TextStyle(
+          fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.black),
+      bodyMedium: TextStyle(fontSize: 16.0, color: Colors.black54),
       // Define other text styles if needed
     ),
 
     // Define AppBar theme
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFFFFC107), // Match primary seed
-      foregroundColor: Colors.black, // Title/icon color
+      backgroundColor: Color(0xFF000000), // Dark theme app bar
+      foregroundColor: Colors.white, // Title/icon color
       elevation: 2,
       centerTitle: true,
     ),
@@ -35,8 +35,8 @@ class AppTheme {
     // Define ElevatedButton theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFFFC107), // Button background
-        foregroundColor: Colors.black, // Button text/icon color
+        backgroundColor: const Color(0xFF000000), // Button background
+        foregroundColor: Colors.white, // Button text/icon color
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),

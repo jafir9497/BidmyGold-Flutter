@@ -445,4 +445,52 @@ class NotificationService extends GetxService {
       print('Error sending notification: $e');
     }
   }
+
+  // Send a bid accepted notification
+  Future<void> sendBidAcceptedNotification(String bidId) async {
+    try {
+      final bid = await _firestore.collection('bids').doc(bidId).get();
+      final bidData = bid.data();
+      if (bidData == null) return;
+
+      final pawnbrokerUid = bidData['pawnbrokerUid'];
+      if (pawnbrokerUid == null) return;
+
+      await sendNotification(
+        userId: pawnbrokerUid,
+        title: 'bid_accepted_title'.tr,
+        body: 'bid_accepted_body'.tr,
+        data: {
+          'type': 'bid_accepted',
+          'bid_id': bidId,
+        },
+      );
+    } catch (e) {
+      print('Error sending bid accepted notification: $e');
+    }
+  }
+
+  // Send a bid rejected notification
+  Future<void> sendBidRejectedNotification(String bidId) async {
+    try {
+      final bid = await _firestore.collection('bids').doc(bidId).get();
+      final bidData = bid.data();
+      if (bidData == null) return;
+
+      final pawnbrokerUid = bidData['pawnbrokerUid'];
+      if (pawnbrokerUid == null) return;
+
+      await sendNotification(
+        userId: pawnbrokerUid,
+        title: 'bid_rejected_title'.tr,
+        body: 'bid_rejected_body'.tr,
+        data: {
+          'type': 'bid_rejected',
+          'bid_id': bidId,
+        },
+      );
+    } catch (e) {
+      print('Error sending bid rejected notification: $e');
+    }
+  }
 }
