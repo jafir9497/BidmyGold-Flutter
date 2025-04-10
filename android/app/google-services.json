@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "982995320350",
+    "project_id": "bidmygoldapp",
+    "storage_bucket": "bidmygoldapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982995320350:android:80fc9ff7f6488aa149780f",
+        "android_client_info": {
+          "package_name": "com.bidmygold.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5ybOiGA8aIqfb_SmEpeVJd7aH4HMF6I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982995320350:android:1217e3741bd942b349780f",
+        "android_client_info": {
+          "package_name": "com.example.bidmygoldflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5ybOiGA8aIqfb_SmEpeVJd7aH4HMF6I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
