@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../utils/admin_auth_service.dart';
-import '../models/activity_log.dart';
 import '../models/admin_log_entry.dart';
 
 class AdminLogsController extends GetxController {

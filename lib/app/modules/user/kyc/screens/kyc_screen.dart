@@ -117,7 +117,7 @@ class KycScreen extends GetView<KycController> {
                 );
               } else if (downloadUrlVariable.value != null) {
                 return Text('upload_complete'.tr,
-                    style: TextStyle(color: Colors.green));
+                    style: const TextStyle(color: Colors.green));
               } else {
                 return const SizedBox.shrink();
               }
@@ -193,11 +193,11 @@ class KycScreen extends GetView<KycController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                           height: 15,
                           width: 15,
                           child: CircularProgressIndicator(strokeWidth: 2)),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text('selfie_uploading'.tr),
                     ],
                   ),
@@ -205,7 +205,7 @@ class KycScreen extends GetView<KycController> {
               } else if (controller.selfieUrl.value != null) {
                 return Text(
                     'selfie_capture_complete'.tr, // Use selfie complete key
-                    style: TextStyle(color: Colors.green));
+                    style: const TextStyle(color: Colors.green));
               } else {
                 return const SizedBox.shrink();
               }

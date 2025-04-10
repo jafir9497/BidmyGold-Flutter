@@ -23,7 +23,7 @@ class ReceiptService {
     final dateFormat = DateFormat('dd MMM yyyy, hh:mm a');
 
     // --- Helper Functions for PDF Widgets ---
-    pw.Widget _buildHeader() {
+    pw.Widget buildHeader() {
       return pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
@@ -36,7 +36,7 @@ class ReceiptService {
           ]);
     }
 
-    pw.Widget _buildSectionTitle(String title) {
+    pw.Widget buildSectionTitle(String title) {
       return pw.Padding(
         padding: const pw.EdgeInsets.only(top: 15, bottom: 5),
         child: pw.Text(title,
@@ -44,7 +44,7 @@ class ReceiptService {
       );
     }
 
-    pw.Widget _buildDetailRow(String label, String value) {
+    pw.Widget buildDetailRow(String label, String value) {
       return pw.Padding(
         padding: const pw.EdgeInsets.symmetric(vertical: 3),
         child: pw.Row(
@@ -65,39 +65,39 @@ class ReceiptService {
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              _buildHeader(),
+              buildHeader(),
 
-              _buildSectionTitle('Payment Details'),
-              _buildDetailRow('EMI Number:', emiData.emiNumber.toString()),
-              _buildDetailRow(
+              buildSectionTitle('Payment Details'),
+              buildDetailRow('EMI Number:', emiData.emiNumber.toString()),
+              buildDetailRow(
                   'Amount Paid:', currencyFormat.format(emiData.amount)),
-              _buildDetailRow(
+              buildDetailRow(
                   'Payment Date:',
                   emiData.paidDate != null
                       ? dateFormat.format(emiData.paidDate!.toDate())
                       : 'N/A'),
-              _buildDetailRow(
+              buildDetailRow(
                   'Payment ID (Razorpay):', emiData.paymentId ?? 'N/A'),
-              _buildDetailRow('Payment Status:',
+              buildDetailRow('Payment Status:',
                   'Paid'), // Assuming receipt is only for paid
 
-              _buildSectionTitle('Loan Details'),
-              _buildDetailRow('Loan ID:', loanData['id'] ?? 'N/A'),
-              _buildDetailRow('Original Due Date:',
+              buildSectionTitle('Loan Details'),
+              buildDetailRow('Loan ID:', loanData['id'] ?? 'N/A'),
+              buildDetailRow('Original Due Date:',
                   dateFormat.format(emiData.dueDate.toDate())),
               // Add more loan details if needed
-              _buildDetailRow('Principal Amount:',
+              buildDetailRow('Principal Amount:',
                   currencyFormat.format(loanData['principalAmount'] ?? 0.0)),
 
-              _buildSectionTitle('Customer Details'),
-              _buildDetailRow('Customer Name:', userData['name'] ?? 'N/A'),
-              _buildDetailRow('Customer Phone:', userData['phone'] ?? 'N/A'),
+              buildSectionTitle('Customer Details'),
+              buildDetailRow('Customer Name:', userData['name'] ?? 'N/A'),
+              buildDetailRow('Customer Phone:', userData['phone'] ?? 'N/A'),
               // Add more user details if needed
 
-              _buildSectionTitle('Pawnbroker Details'),
-              _buildDetailRow(
+              buildSectionTitle('Pawnbroker Details'),
+              buildDetailRow(
                   'Pawnbroker:', pawnbrokerData['shopName'] ?? 'N/A'),
-              _buildDetailRow('Address:', pawnbrokerData['address'] ?? 'N/A'),
+              buildDetailRow('Address:', pawnbrokerData['address'] ?? 'N/A'),
 
               pw.Spacer(),
               pw.Divider(),

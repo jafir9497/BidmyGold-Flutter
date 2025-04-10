@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import '../controllers/feedback_controller.dart';
 
 class FeedbackScreen extends GetView<FeedbackController> {
-  const FeedbackScreen({Key? key}) : super(key: key);
+  const FeedbackScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>(); // For potential validation
+    final formKey = GlobalKey<FormState>(); // For potential validation
 
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +17,7 @@ class FeedbackScreen extends GetView<FeedbackController> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Form(
-          key: _formKey,
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -70,7 +70,7 @@ class FeedbackScreen extends GetView<FeedbackController> {
                           ? null
                           : () {
                               // Validate form before submitting
-                              if (_formKey.currentState!.validate()) {
+                              if (formKey.currentState!.validate()) {
                                 controller.submitFeedback();
                               }
                             },

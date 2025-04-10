@@ -4,7 +4,7 @@ import 'package:bidmygoldflutter/app/modules/appointment/controllers/appointment
 import 'package:intl/intl.dart';
 
 class AppointmentDetailsScreen extends GetView<AppointmentDetailsController> {
-  const AppointmentDetailsScreen({Key? key}) : super(key: key);
+  const AppointmentDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -210,10 +210,10 @@ class BidDetailsController extends GetxController {
           ),
           ElevatedButton(
             onPressed: () => Get.back(result: true),
-            child: Text('confirm'.tr),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
+            child: Text('confirm'.tr),
           ),
         ],
       ),

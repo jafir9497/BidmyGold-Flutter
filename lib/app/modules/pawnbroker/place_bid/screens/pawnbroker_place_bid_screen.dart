@@ -4,7 +4,7 @@ import '../controllers/pawnbroker_place_bid_controller.dart';
 import 'package:intl/intl.dart';
 
 class PawnbrokerPlaceBidScreen extends GetView<PawnbrokerPlaceBidController> {
-  const PawnbrokerPlaceBidScreen({Key? key}) : super(key: key);
+  const PawnbrokerPlaceBidScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

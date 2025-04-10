@@ -122,13 +122,13 @@ class AdminLoginController extends GetxController {
 
     Get.dialog(
       AlertDialog(
-        title: Text('Reset Password'),
+        title: const Text('Reset Password'),
         content: Text(
             'Send password reset instructions to ${emailController.text}?'),
         actions: [
           TextButton(
             onPressed: () => Get.back(),
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () async {
@@ -153,7 +153,7 @@ class AdminLoginController extends GetxController {
                 isLoading.value = false;
               }
             },
-            child: Text('Send'),
+            child: const Text('Send'),
           ),
         ],
       ),

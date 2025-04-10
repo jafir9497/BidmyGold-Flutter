@@ -181,7 +181,7 @@ class LoanRequestController extends GetxController {
       final ImagePicker picker = ImagePicker();
       final XFile? video = await picker.pickVideo(
         source: ImageSource.camera,
-        maxDuration: Duration(seconds: 30), // Limit to 30 seconds
+        maxDuration: const Duration(seconds: 30), // Limit to 30 seconds
       );
 
       if (video != null) {
@@ -323,7 +323,7 @@ class LoanRequestController extends GetxController {
       'jewelVideoUrl': jewelVideoUrl.value,
       'status': 'pending',
       'createdAt': FieldValue.serverTimestamp(),
-      'location': GeoPoint(0, 0), // Placeholder, would be actual user location
+      'location': const GeoPoint(0, 0), // Placeholder, would be actual user location
     });
 
     // Also update user's data to track loan requests

@@ -252,8 +252,8 @@ class LoanMonitoringController extends GetxController {
 
       Get.back(); // Go back from detail screen
       Get.snackbar('Success', 'Loan status updated to $newStatus');
-      await _logAdminAction('Updated loan $requestId status to $newStatus' +
-          (note != null && note.isNotEmpty ? ' with note' : ''));
+      await _logAdminAction(
+          'Updated loan $requestId status to $newStatus${note != null && note.isNotEmpty ? ' with note' : ''}');
     } catch (e) {
       print("Error updating loan status: $e");
       Get.snackbar('Error', 'Failed to update loan status. Please try again.');

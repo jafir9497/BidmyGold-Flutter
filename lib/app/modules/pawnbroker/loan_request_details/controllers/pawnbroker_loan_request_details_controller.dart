@@ -3,8 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bidmygoldflutter/app/routes/app_pages.dart';
 import 'package:intl/intl.dart';
-import '../../../../data/models/loan_request_model.dart';
-import '../../../../data/models/bid_model.dart';
 import '../../../../data/services/auth_service.dart';
 
 class PawnbrokerLoanRequestDetailsController extends GetxController {

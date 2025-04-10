@@ -198,7 +198,7 @@ class AdminManagementController extends GetxController {
 
         // *** Placeholder ID if not using FirebaseAuth for admins ***
         String newAdminAuthId =
-            'TEMP_' + DateTime.now().millisecondsSinceEpoch.toString();
+            'TEMP_${DateTime.now().millisecondsSinceEpoch}';
 
         // 2. Create Admin document in Firestore
         adminToSave = AdminUser(

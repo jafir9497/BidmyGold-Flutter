@@ -188,7 +188,7 @@ class NotificationService extends GetxService {
         icon: androidNotification?.smallIcon ?? '@mipmap/ic_launcher',
       );
 
-      final iosDetails = const DarwinNotificationDetails(
+      const iosDetails = DarwinNotificationDetails(
         presentAlert: true,
         presentBadge: true,
         presentSound: true,

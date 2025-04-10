@@ -10,7 +10,7 @@ import '../controllers/pawnbroker_qr_scanner_controller.dart';
 enum VerificationStatus { success, error, notVerified }
 
 class PawnbrokerQrScannerScreen extends GetView<PawnbrokerQrScannerController> {
-  const PawnbrokerQrScannerScreen({Key? key}) : super(key: key);
+  const PawnbrokerQrScannerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -169,13 +169,13 @@ class PawnbrokerQrScannerScreen extends GetView<PawnbrokerQrScannerController> {
                       Row(
                         children: [
                           _buildKycStatusWidget(
-                              user?['kycStatus']?.toString() ?? 'unknown'),
+                              user['kycStatus']?.toString() ?? 'unknown'),
                           const SizedBox(width: 8),
                           Text(
-                            'KYC Status: ${user?['kycStatus']?.toString().capitalize ?? 'Unknown'}',
+                            'KYC Status: ${user['kycStatus']?.toString().capitalize ?? 'Unknown'}',
                             style: TextStyle(
                                 color: _getKycStatusColor(
-                                    user?['kycStatus']?.toString() ??
+                                    user['kycStatus']?.toString() ??
                                         'unknown'),
                                 fontWeight: FontWeight.bold),
                           ),

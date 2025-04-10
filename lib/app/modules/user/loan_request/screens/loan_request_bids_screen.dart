@@ -4,7 +4,7 @@ import '../controllers/loan_request_bids_controller.dart';
 import 'package:intl/intl.dart';
 
 class LoanRequestBidsScreen extends GetView<LoanRequestBidsController> {
-  const LoanRequestBidsScreen({Key? key}) : super(key: key);
+  const LoanRequestBidsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

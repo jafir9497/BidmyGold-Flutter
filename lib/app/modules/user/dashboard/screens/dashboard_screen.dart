@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +75,8 @@ class DashboardScreen extends GetView<DashboardController> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: controller.createNewLoanRequest,
-        child: const Icon(Icons.add),
         tooltip: 'new_loan_request'.tr,
+        child: const Icon(Icons.add),
       ),
     );
   }

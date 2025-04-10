@@ -31,7 +31,7 @@ class GoldLoanCalculatorWidget extends StatelessWidget {
             Expanded(
               child: TextField(
                 controller: controller.weightController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
                 ],

@@ -11,7 +11,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 // Convert to StatefulWidget to manage TextEditingController
 class LoanRequestDetailScreen extends StatefulWidget {
-  const LoanRequestDetailScreen({Key? key}) : super(key: key);
+  const LoanRequestDetailScreen({super.key});
 
   @override
   _LoanRequestDetailScreenState createState() =>

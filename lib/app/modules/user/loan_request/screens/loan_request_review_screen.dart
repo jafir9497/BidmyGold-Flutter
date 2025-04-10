@@ -5,7 +5,7 @@ import 'package:bidmygoldflutter/app/modules/user/loan_request/controllers/loan_
 import 'package:image_picker/image_picker.dart';
 
 class LoanRequestReviewScreen extends GetView<LoanRequestController> {
-  const LoanRequestReviewScreen({Key? key}) : super(key: key);
+  const LoanRequestReviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class LoanRequestReviewScreen extends GetView<LoanRequestController> {
                   const SizedBox(height: 8),
                   Text(
                     'review_instruction'.tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),

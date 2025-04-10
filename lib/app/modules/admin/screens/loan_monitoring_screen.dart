@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../data/models/loan_request_model.dart';
 
 class LoanMonitoringScreen extends GetView<LoanMonitoringController> {
-  const LoanMonitoringScreen({Key? key}) : super(key: key);
+  const LoanMonitoringScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class LoanMonitoringScreen extends GetView<LoanMonitoringController> {
               ].map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text('loan_status_${value}'.tr),
+                  child: Text('loan_status_$value'.tr),
                 );
               }).toList(),
               style: Get.textTheme.bodyMedium,
@@ -136,7 +136,7 @@ class LoanMonitoringScreen extends GetView<LoanMonitoringController> {
   Widget _buildLoanRequestList() {
     final scrollController = ScrollController();
 
-    void _scrollListener() {
+    void scrollListener() {
       if (scrollController.position.extentAfter < 500 &&
           !controller.isLoadingMore.value &&
           controller.hasMoreData.value) {
@@ -144,7 +144,7 @@ class LoanMonitoringScreen extends GetView<LoanMonitoringController> {
       }
     }
 
-    scrollController.addListener(_scrollListener);
+    scrollController.addListener(scrollListener);
 
     // Dispose listener
     // Get.find<LoanMonitoringController>().addOnClose(() => scrollController.removeListener(_scrollListener));

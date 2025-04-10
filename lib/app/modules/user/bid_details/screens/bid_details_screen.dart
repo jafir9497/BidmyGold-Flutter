@@ -4,7 +4,7 @@ import '../controllers/bid_details_controller.dart';
 import 'package:intl/intl.dart';
 
 class BidDetailsScreen extends GetView<BidDetailsController> {
-  const BidDetailsScreen({Key? key}) : super(key: key);
+  const BidDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

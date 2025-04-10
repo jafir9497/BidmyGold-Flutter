@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 
 class PawnbrokerRegistrationScreen
     extends GetView<PawnbrokerRegistrationController> {
-  const PawnbrokerRegistrationScreen({Key? key}) : super(key: key);
+  const PawnbrokerRegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +221,7 @@ class PawnbrokerRegistrationScreen
 
         // Shop Photo Upload (Optional)
         _buildDocumentSection(
-          title: 'shop_photo'.tr + ' (${'optional'.tr})',
+          title: '${'shop_photo'.tr} (${'optional'.tr})',
           description: 'shop_photo_description'.tr,
           file: controller.shopPhotoFile.value,
           isUploading: controller.uploadingShopPhoto.value,
@@ -395,7 +395,7 @@ class PawnbrokerRegistrationScreen
         TextFormField(
           controller: controller.gstNumberController,
           decoration: InputDecoration(
-            labelText: 'gst_number'.tr + ' (${'optional'.tr})',
+            labelText: '${'gst_number'.tr} (${'optional'.tr})',
             border: const OutlineInputBorder(),
           ),
           validator: controller.validateGstNumber,

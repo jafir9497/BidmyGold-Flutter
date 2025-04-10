@@ -49,7 +49,7 @@ class PaymentService extends GetxService {
         currentUser.email ?? 'not@provided.com'; // Razorpay prefers an email
     userPhone ??= currentUser.phoneNumber ?? '';
 
-    if (userPhone == null || userPhone.isEmpty) {
+    if (userPhone.isEmpty) {
       _showErrorSnackbar('User phone number is required for payment.');
       return;
     }

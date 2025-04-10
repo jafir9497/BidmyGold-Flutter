@@ -4,7 +4,7 @@ import '../controllers/system_settings_controller.dart';
 import '../widgets/admin_drawer.dart';
 
 class SystemSettingsScreen extends StatefulWidget {
-  const SystemSettingsScreen({Key? key}) : super(key: key);
+  const SystemSettingsScreen({super.key});
 
   @override
   _SystemSettingsScreenState createState() => _SystemSettingsScreenState();
@@ -74,14 +74,17 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                 _buildTextField(
                   controller: controller.defaultLoanRateController,
                   label: 'default_loan_rate_label'.tr,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'validation_rate_empty'.tr;
-                    if (double.tryParse(value) == null)
+                    }
+                    if (double.tryParse(value) == null) {
                       return 'validation_invalid_number'.tr;
-                    if (double.parse(value) <= 0)
+                    }
+                    if (double.parse(value) <= 0) {
                       return 'validation_rate_positive'.tr;
+                    }
                     return null;
                   },
                 ),
@@ -91,12 +94,15 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                   label: 'max_loan_tenure_label'.tr,
                   keyboardType: TextInputType.number,
                   validator: (value) {
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'validation_tenure_empty'.tr;
-                    if (int.tryParse(value) == null)
+                    }
+                    if (int.tryParse(value) == null) {
                       return 'validation_invalid_number'.tr;
-                    if (int.parse(value) <= 0)
+                    }
+                    if (int.parse(value) <= 0) {
                       return 'validation_tenure_positive'.tr;
+                    }
                     return null;
                   },
                 ),
@@ -104,15 +110,18 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                 _buildTextField(
                   controller: controller.maxLoanPercentageController,
                   label: 'max_loan_percentage_label'.tr,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'validation_percentage_empty'.tr;
-                    if (double.tryParse(value) == null)
+                    }
+                    if (double.tryParse(value) == null) {
                       return 'validation_invalid_number'.tr;
+                    }
                     final percent = double.parse(value);
-                    if (percent <= 0 || percent > 100)
+                    if (percent <= 0 || percent > 100) {
                       return 'validation_percentage_range'.tr;
+                    }
                     return null;
                   },
                 ),
@@ -124,14 +133,17 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                         controller: controller.minLoanAmountController,
                         label: 'min_loan_amount_label'.tr,
                         keyboardType:
-                            TextInputType.numberWithOptions(decimal: true),
+                            const TextInputType.numberWithOptions(decimal: true),
                         validator: (value) {
-                          if (value == null || value.isEmpty)
+                          if (value == null || value.isEmpty) {
                             return 'validation_amount_empty'.tr;
-                          if (double.tryParse(value) == null)
+                          }
+                          if (double.tryParse(value) == null) {
                             return 'validation_invalid_number'.tr;
-                          if (double.parse(value) < 0)
+                          }
+                          if (double.parse(value) < 0) {
                             return 'validation_amount_negative'.tr;
+                          }
                           return null;
                         },
                       ),
@@ -142,14 +154,17 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                         controller: controller.maxLoanAmountController,
                         label: 'max_loan_amount_label'.tr,
                         keyboardType:
-                            TextInputType.numberWithOptions(decimal: true),
+                            const TextInputType.numberWithOptions(decimal: true),
                         validator: (value) {
-                          if (value == null || value.isEmpty)
+                          if (value == null || value.isEmpty) {
                             return 'validation_amount_empty'.tr;
-                          if (double.tryParse(value) == null)
+                          }
+                          if (double.tryParse(value) == null) {
                             return 'validation_invalid_number'.tr;
-                          if (double.parse(value) <= 0)
+                          }
+                          if (double.parse(value) <= 0) {
                             return 'validation_amount_positive'.tr;
+                          }
                           return null;
                         },
                       ),
@@ -162,14 +177,17 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
                 _buildTextField(
                   controller: controller.serviceChargeController,
                   label: 'service_charge_label'.tr,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'validation_amount_empty'.tr;
-                    if (double.tryParse(value) == null)
+                    }
+                    if (double.tryParse(value) == null) {
                       return 'validation_invalid_number'.tr;
-                    if (double.parse(value) < 0)
+                    }
+                    if (double.parse(value) < 0) {
                       return 'validation_amount_negative'.tr;
+                    }
                     return null;
                   },
                 ),
@@ -338,15 +356,18 @@ class _SystemSettingsScreenState extends State<SystemSettingsScreen> {
             ? _buildTextField(
                 controller: controller.goldRateController,
                 label: 'manual_gold_rate_input_label'.tr,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (controller.goldRateManualEntry.value) {
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'validation_rate_empty'.tr;
-                    if (double.tryParse(value) == null)
+                    }
+                    if (double.tryParse(value) == null) {
                       return 'validation_invalid_number'.tr;
-                    if (double.parse(value) <= 0)
+                    }
+                    if (double.parse(value) <= 0) {
                       return 'validation_rate_positive'.tr;
+                    }
                   }
                   return null;
                 },

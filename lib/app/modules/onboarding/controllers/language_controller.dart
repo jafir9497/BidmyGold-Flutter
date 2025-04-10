@@ -16,13 +16,6 @@ class LanguageController extends GetxController {
   // Variable to hold the currently selected locale
   final selectedLocale = Rx<Locale?>(null);
 
-  @override
-  void onInit() {
-    super.onInit();
-    // Load saved locale if exists, otherwise maybe default to device locale?
-    // final savedLocaleCode = _getStorage.read<String>('locale_code');
-    // if (savedLocaleCode != null) { ... set selectedLocale ... }
-  }
 
   // Function to update the application's locale
   void changeLanguage(Locale locale) {

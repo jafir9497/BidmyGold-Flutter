@@ -8,8 +8,7 @@ import 'dart:typed_data';
 class SelfieGuidedCaptureScreen extends StatefulWidget {
   final Function(XFile) onComplete;
 
-  const SelfieGuidedCaptureScreen({Key? key, required this.onComplete})
-      : super(key: key);
+  const SelfieGuidedCaptureScreen({super.key, required this.onComplete});
 
   @override
   State<SelfieGuidedCaptureScreen> createState() =>
@@ -57,24 +56,24 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
     // Setup animations
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     )..repeat(reverse: true); // Repeat for pulsing effect
 
     // Instruction animations
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0.0, 0.5, curve: Curves.easeIn),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeIn),
       ),
     );
 
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0.0, 0.2),
+      begin: const Offset(0.0, 0.2),
       end: Offset.zero,
     ).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0.0, 0.5, curve: Curves.easeOut),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeOut),
       ),
     );
 
@@ -82,7 +81,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
     _pulseAnimation = Tween<double>(begin: 0.4, end: 0.6).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0.0, 1.0, curve: Curves.easeInOut),
+        curve: const Interval(0.0, 1.0, curve: Curves.easeInOut),
       ),
     );
 
@@ -105,7 +104,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
       _countdown = _steps[_currentStep]['duration'];
     });
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
         setState(() {
           _countdown--;
@@ -185,7 +184,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
   Widget _buildSelfieReviewScreen(XFile image) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.9,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -195,9 +194,9 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
             backgroundColor: Colors.transparent,
             elevation: 0,
             title:
-                Text('review_selfie'.tr, style: TextStyle(color: Colors.white)),
+                Text('review_selfie'.tr, style: const TextStyle(color: Colors.white)),
             leading: IconButton(
-              icon: Icon(Icons.close, color: Colors.white),
+              icon: const Icon(Icons.close, color: Colors.white),
               onPressed: () => Navigator.pop(context),
             ),
           ),
@@ -206,10 +205,10 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
               future: image.readAsBytes(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                       child: CircularProgressIndicator(color: Colors.white));
                 } else if (snapshot.hasError) {
-                  return Center(
+                  return const Center(
                       child: Text('Error loading image',
                           style: TextStyle(color: Colors.white)));
                 } else if (snapshot.hasData) {
@@ -231,13 +230,13 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                       // Looking good message
                       Text(
                         'looking_good'.tr,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       // Action buttons
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -248,14 +247,14 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                               _takeSelfie(); // Retake the selfie
                             },
                             style: OutlinedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 15),
-                              side: BorderSide(color: Colors.white),
+                              side: const BorderSide(color: Colors.white),
                             ),
                             child: Text('retake'.tr,
-                                style: TextStyle(color: Colors.white)),
+                                style: const TextStyle(color: Colors.white)),
                           ),
-                          SizedBox(width: 20),
+                          const SizedBox(width: 20),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context);
@@ -265,7 +264,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 15),
                             ),
                             child: Text('confirm_selfie'.tr),
@@ -275,7 +274,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                     ],
                   );
                 } else {
-                  return Center(
+                  return const Center(
                       child: Text('No image data',
                           style: TextStyle(color: Colors.white)));
                 }
@@ -299,12 +298,12 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.close, color: Colors.white),
+          icon: const Icon(Icons.close, color: Colors.white),
           onPressed: () => Get.back(),
         ),
       ),
       body: _isProcessing
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(color: Colors.white),
             )
           : Stack(
@@ -312,7 +311,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                 // Face outline guide
                 Positioned.fill(
                   child: Center(
-                    child: Container(
+                    child: SizedBox(
                       width: 220,
                       height: 280,
                       child: AnimatedBuilder(
@@ -348,16 +347,16 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                                   size: 100,
                                   color: Colors.white,
                                 ),
-                                SizedBox(height: 30),
+                                const SizedBox(height: 30),
                                 Text(
                                   _steps[_currentStep]['instruction'].tr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
-                                SizedBox(height: 20),
+                                const SizedBox(height: 20),
                                 Container(
                                   width: 80,
                                   height: 80,
@@ -368,7 +367,7 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                                   child: Center(
                                     child: Text(
                                       '$_countdown',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 48,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
@@ -388,16 +387,16 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                         children: [
                           Container(
                             width: double.infinity,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: LinearProgressIndicator(
                               value: (_currentStep + 1) / _steps.length,
                               minHeight: 8,
                               backgroundColor: Colors.grey[800],
                               valueColor:
-                                  AlwaysStoppedAnimation<Color>(Colors.blue),
+                                  const AlwaysStoppedAnimation<Color>(Colors.blue),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -405,17 +404,17 @@ class _SelfieGuidedCaptureScreenState extends State<SelfieGuidedCaptureScreen>
                                 onPressed: _skipToCamera,
                                 child: Text(
                                   'skip'.tr,
-                                  style: TextStyle(color: Colors.white70),
+                                  style: const TextStyle(color: Colors.white70),
                                 ),
                               ),
                               ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.blue,
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 24, vertical: 12),
                                 ),
                                 onPressed: _skipToCamera,
-                                icon: Icon(Icons.camera_alt),
+                                icon: const Icon(Icons.camera_alt),
                                 label: Text('camera'.tr),
                               ),
                             ],

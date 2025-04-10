@@ -8,7 +8,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class PawnbrokerVerificationScreen
     extends GetView<PawnbrokerVerificationController> {
-  const PawnbrokerVerificationScreen({Key? key}) : super(key: key);
+  const PawnbrokerVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +92,9 @@ class PawnbrokerVerificationScreen
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListTile(
-        leading: CircleAvatar(
+        leading: const CircleAvatar(
           backgroundColor: Colors.amber,
-          child: const Icon(Icons.store, color: Colors.white),
+          child: Icon(Icons.store, color: Colors.white),
         ),
         title: Text(pawnbroker.shopName),
         subtitle: Column(
@@ -128,7 +128,7 @@ class PawnbrokerVerificationScreen
             onPressed: controller.clearSelectedPawnbroker,
           ),
           title: Text(pawnbroker.shopName),
-          backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+          backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
           foregroundColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
         Expanded(
@@ -181,9 +181,9 @@ class PawnbrokerVerificationScreen
                           controller.idProofUrl.value == null &&
                           controller.shopPhotoUrls.isEmpty) {
                         return Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Text('no_documents_uploaded_pawnbroker'.tr,
-                              style: TextStyle(color: Colors.grey)),
+                              style: const TextStyle(color: Colors.grey)),
                         );
                       }
                       return const SizedBox.shrink();
@@ -199,7 +199,7 @@ class PawnbrokerVerificationScreen
                       controller: controller.rejectionReasonController,
                       decoration: InputDecoration(
                         labelText: 'rejection_reason_hint'.tr,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                       maxLines: 3,
                       enabled: !controller.isSubmitting.value,

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../controllers/admin_dashboard_controller.dart'; // Access controller
 
 class AdminDashboardContent extends StatelessWidget {
-  const AdminDashboardContent({Key? key}) : super(key: key);
+  const AdminDashboardContent({super.key});
 
   @override
   Widget build(BuildContext context) {

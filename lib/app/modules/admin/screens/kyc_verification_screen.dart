@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class KycVerificationScreen extends GetView<KycVerificationController> {
-  const KycVerificationScreen({Key? key}) : super(key: key);
+  const KycVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class KycVerificationScreen extends GetView<KycVerificationController> {
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: ListTile(
         leading: CircleAvatar(
-          child: Text(user.name?.substring(0, 1).toUpperCase() ?? 'U'),
+          child: Text(user.name.substring(0, 1).toUpperCase() ?? 'U'),
         ),
         title: Text(
             '${user.name ?? "unknown_user".tr} (${user.phone ?? "not_available".tr})'),
@@ -117,7 +117,7 @@ class KycVerificationScreen extends GetView<KycVerificationController> {
           ),
           title: Text(
               '${'verify_kyc_title_prefix'.tr}: ${user.name ?? unknownUserName}'),
-          backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+          backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
           foregroundColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
         Expanded(
@@ -162,9 +162,9 @@ class KycVerificationScreen extends GetView<KycVerificationController> {
                       controller.addressProofUrl.value == null &&
                       controller.selfieUrl.value == null) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Text('no_kyc_documents_uploaded'.tr,
-                          style: TextStyle(color: Colors.grey)),
+                          style: const TextStyle(color: Colors.grey)),
                     );
                   }
                   return const SizedBox.shrink();
@@ -177,7 +177,7 @@ class KycVerificationScreen extends GetView<KycVerificationController> {
                   controller: controller.rejectionReasonController,
                   decoration: InputDecoration(
                     labelText: 'rejection_reason_hint_kyc'.tr,
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                   ),
                   maxLines: 3,
                   enabled: !controller.isSubmitting.value,

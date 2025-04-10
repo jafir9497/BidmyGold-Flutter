@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
 class AdminDrawer extends StatelessWidget {
-  const AdminDrawer({Key? key}) : super(key: key);
+  const AdminDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

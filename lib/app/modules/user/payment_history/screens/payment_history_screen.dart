@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../controllers/payment_history_controller.dart';
 
 class PaymentHistoryScreen extends GetView<PaymentHistoryController> {
-  const PaymentHistoryScreen({Key? key}) : super(key: key);
+  const PaymentHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

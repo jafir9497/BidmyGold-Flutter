@@ -41,7 +41,7 @@ class QrService extends GetxService {
   String _generateSignature(String userId, String kycStatus, String timestamp) {
     // Concatenate the data with a secret key
     // In production, this should be done server-side with a properly secured key
-    final String secretKey =
+    const String secretKey =
         'BidMyGold_QR_SECRET_KEY'; // Replace with secure key management
     final String data = '$userId:$kycStatus:$timestamp:$secretKey';
 
@@ -88,7 +88,7 @@ class QrService extends GetxService {
       // Check timestamp for expiration (24 hours validity)
       final qrTimestamp = int.parse(timestamp);
       final currentTimestamp = DateTime.now().millisecondsSinceEpoch;
-      final validityPeriod = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+      const validityPeriod = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
       if (currentTimestamp - qrTimestamp > validityPeriod) {
         return {'isValid': false, 'message': 'QR code has expired'};

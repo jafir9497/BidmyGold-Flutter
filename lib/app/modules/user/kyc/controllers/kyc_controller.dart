@@ -43,8 +43,9 @@ class KycController extends GetxController {
         // Reset URL if a new file is picked
         if (fileVariable == idProofFile) idProofUrl.value = null;
         if (fileVariable == addressProofFile) addressProofUrl.value = null;
-        if (fileVariable == selfieFile)
+        if (fileVariable == selfieFile) {
           selfieUrl.value = null; // New: Reset selfie URL
+        }
       }
     } catch (e) {
       Get.snackbar('Error', 'Failed to pick image: $e');
@@ -76,8 +77,9 @@ class KycController extends GetxController {
       // Reset progress after completion
       if (path.contains('id_proof')) idProofProgress.value = 0.0;
       if (path.contains('address_proof')) addressProofProgress.value = 0.0;
-      if (path.contains('selfie'))
+      if (path.contains('selfie')) {
         selfieProgress.value = 0.0; // New: Reset selfie progress
+      }
 
       return downloadUrl;
     } catch (e) {

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:bidmygoldflutter/app/data/services/notification_service.dart';
 import 'package:bidmygoldflutter/app/routes/app_pages.dart';
-import '../../../data/models/review_model.dart'; // Import ReviewModel
+// Import ReviewModel
 
 class AppointmentDetailsController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

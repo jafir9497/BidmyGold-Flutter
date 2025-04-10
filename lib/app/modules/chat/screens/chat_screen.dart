@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../controllers/chat_controller.dart';
 
 class ChatScreen extends GetView<ChatController> {
-  const ChatScreen({Key? key}) : super(key: key);
+  const ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

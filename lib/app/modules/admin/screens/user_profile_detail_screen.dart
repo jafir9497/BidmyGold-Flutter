@@ -5,7 +5,7 @@ import 'package:bidmygoldflutter/app/data/models/user_model.dart';
 import 'package:bidmygoldflutter/app/modules/admin/controllers/user_management_controller.dart';
 
 class UserProfileDetailScreen extends StatelessWidget {
-  const UserProfileDetailScreen({Key? key}) : super(key: key);
+  const UserProfileDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

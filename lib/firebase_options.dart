@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'bidmygoldapp.firebasestorage.app',
     iosBundleId: 'com.example.bidmygoldflutter',
   );
+
 }

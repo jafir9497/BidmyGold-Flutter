@@ -5,7 +5,7 @@ import 'package:bidmygoldflutter/app/modules/user/loan_request/controllers/loan_
 import 'package:image_picker/image_picker.dart';
 
 class LoanRequestScreen extends GetView<LoanRequestController> {
-  const LoanRequestScreen({Key? key}) : super(key: key);
+  const LoanRequestScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,8 @@ class LoanRequestScreen extends GetView<LoanRequestController> {
                 border: const OutlineInputBorder(),
                 suffixText: 'g',
               ),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter jewel weight';
@@ -140,7 +141,8 @@ class LoanRequestScreen extends GetView<LoanRequestController> {
                 border: const OutlineInputBorder(),
                 prefixText: '₹ ',
               ),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter loan amount';
@@ -381,9 +383,7 @@ class LoanRequestScreen extends GetView<LoanRequestController> {
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(
-              index < 3
-                  ? '${'photo'.tr} ${index + 1}'
-                  : '${'additional_photos'.tr}',
+              index < 3 ? '${'photo'.tr} ${index + 1}' : 'additional_photos'.tr,
               style: const TextStyle(color: Colors.white, fontSize: 10),
             ),
           ),

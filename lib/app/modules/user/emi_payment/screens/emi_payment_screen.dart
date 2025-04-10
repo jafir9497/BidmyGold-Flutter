@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../controllers/emi_payment_controller.dart';
 
 class EmiPaymentScreen extends GetView<EmiPaymentController> {
-  const EmiPaymentScreen({Key? key}) : super(key: key);
+  const EmiPaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

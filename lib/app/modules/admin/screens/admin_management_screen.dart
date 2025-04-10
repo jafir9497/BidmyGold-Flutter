@@ -6,7 +6,7 @@ import '../models/admin_user.dart';
 import '../widgets/admin_drawer.dart'; // Assuming AdminDrawer exists
 
 class AdminManagementScreen extends GetView<AdminManagementController> {
-  const AdminManagementScreen({Key? key}) : super(key: key);
+  const AdminManagementScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class AdminManagementScreen extends GetView<AdminManagementController> {
         if (controller.adminUsers.isEmpty) {
           return Center(
             child: Text('no_admin_users_found'.tr,
-                style: TextStyle(fontSize: 16, color: Colors.grey)),
+                style: const TextStyle(fontSize: 16, color: Colors.grey)),
           );
         }
         return ListView.separated(

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/admin_dashboard_controller.dart';
 
 class AdminDashboardScreen extends GetView<AdminDashboardController> {
-  const AdminDashboardScreen({Key? key}) : super(key: key);
+  const AdminDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -37,9 +37,9 @@ class OtpScreen extends GetView<AuthController> {
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold), // Style for OTP look
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'OTP',
-                border: const OutlineInputBorder(),
+                border: OutlineInputBorder(),
                 counterText: '', // Hide the counter
               ),
             ),

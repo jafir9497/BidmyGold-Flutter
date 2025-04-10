@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bidmygoldflutter/app/routes/app_pages.dart';
 
 class PawnbrokerDashboardScreen extends GetView<PawnbrokerDashboardController> {
-  const PawnbrokerDashboardScreen({Key? key}) : super(key: key);
+  const PawnbrokerDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -404,14 +404,12 @@ class PawnbrokerDashboardScreen extends GetView<PawnbrokerDashboardController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'weight'.tr + ': ${request['jewelWeight']} g',
+                      '${'weight'.tr}: ${request['jewelWeight']} g',
                       style: Get.textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'requested_amount'.tr +
-                          ': ' +
-                          currencyFormat.format(request['requestedAmount']),
+                      '${'requested_amount'.tr}: ${currencyFormat.format(request['requestedAmount'])}',
                       style: Get.textTheme.bodyMedium
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
@@ -584,7 +582,7 @@ class PawnbrokerDashboardScreen extends GetView<PawnbrokerDashboardController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'interest_rate'.tr + ': ${bid['interestRate']}%',
+                    '${'interest_rate'.tr}: ${bid['interestRate']}%',
                     style: Get.textTheme.bodyMedium,
                   ),
                   Text(

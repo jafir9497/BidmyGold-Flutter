@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:get/get.dart';
 
 class GoldApiProvider {
   // WARNING: Storing API keys directly in code is insecure for production apps.

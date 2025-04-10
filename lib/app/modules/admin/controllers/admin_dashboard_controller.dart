@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart'; // Import Material
 import '../utils/admin_auth_service.dart';
-import '../models/admin_user.dart';
 import '../../../routes/app_pages.dart'; // Assuming routes are defined here
 import 'package:cloud_firestore/cloud_firestore.dart';
 

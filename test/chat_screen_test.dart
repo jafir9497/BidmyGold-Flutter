@@ -57,7 +57,7 @@ void main() {
       (WidgetTester tester) async {
     // Build the widget
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: ChatScreen(),
       ),
     );
@@ -80,7 +80,7 @@ void main() {
 
     // Build the widget
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: ChatScreen(),
       ),
     );
@@ -93,7 +93,7 @@ void main() {
   testWidgets('ChatScreen can send a message', (WidgetTester tester) async {
     // Build the widget
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: ChatScreen(),
       ),
     );

@@ -5,7 +5,7 @@ import 'package:share_plus/share_plus.dart'; // For sharing QR code
 import '../controllers/user_qr_controller.dart';
 
 class UserQrScreen extends GetView<UserQrController> {
-  const UserQrScreen({Key? key}) : super(key: key);
+  const UserQrScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

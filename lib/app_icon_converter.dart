@@ -25,6 +25,8 @@ class IconConverterApp extends StatelessWidget {
 }
 
 class IconConverter extends StatefulWidget {
+  const IconConverter({super.key});
+
   @override
   _IconConverterState createState() => _IconConverterState();
 }
@@ -56,7 +58,7 @@ class _IconConverterState extends State<IconConverter> {
       final PictureInfo pictureInfo =
           await vg.loadPicture(SvgStringLoader(svgString), null);
 
-      final double iconSize = 1024; // PNG size in pixels
+      const double iconSize = 1024; // PNG size in pixels
       final ui.PictureRecorder recorder = ui.PictureRecorder();
       final Canvas canvas = Canvas(recorder);
 

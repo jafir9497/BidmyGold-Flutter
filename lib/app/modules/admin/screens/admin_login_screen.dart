@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/admin_login_controller.dart';
 
 class AdminLoginScreen extends GetView<AdminLoginController> {
-  const AdminLoginScreen({Key? key}) : super(key: key);
+  const AdminLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -210,7 +210,7 @@ class AdminLoginScreen extends GetView<AdminLoginController> {
                 )
               : Text(
                   'login_button'.tr,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
         ));
   }

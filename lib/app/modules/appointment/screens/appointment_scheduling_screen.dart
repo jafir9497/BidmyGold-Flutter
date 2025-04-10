@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 class AppointmentSchedulingScreen
     extends GetView<AppointmentSchedulingController> {
-  const AppointmentSchedulingScreen({Key? key}) : super(key: key);
+  const AppointmentSchedulingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -282,7 +282,7 @@ class AppointmentSchedulingScreen
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'notes'.tr + ' (' + 'optional'.tr + ')',
+          '${'notes'.tr} (${'optional'.tr})',
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,

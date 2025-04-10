@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import '../../../data/models/user_model.dart'; // Import UserModel
 
 class UserManagementScreen extends GetView<UserManagementController> {
-  const UserManagementScreen({Key? key}) : super(key: key);
+  const UserManagementScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,13 +84,13 @@ class UserManagementScreen extends GetView<UserManagementController> {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       child: ListTile(
         leading: CircleAvatar(
-          child: Text(user.name.isNotEmpty ? user.name[0].toUpperCase() : '?'),
           backgroundColor: user.isDisabled
               ? Colors.grey[700]
               : Theme.of(context).colorScheme.primaryContainer,
           foregroundColor: user.isDisabled
               ? Colors.white70
               : Theme.of(context).colorScheme.onPrimaryContainer,
+          child: Text(user.name.isNotEmpty ? user.name[0].toUpperCase() : '?'),
         ),
         title: Text('${user.name} ${user.isDisabled ? "(Disabled)" : ""}',
             style: TextStyle(
@@ -107,7 +107,7 @@ class UserManagementScreen extends GetView<UserManagementController> {
             Text('Joined: $createdDate'),
             Row(
               children: [
-                Text('KYC: '),
+                const Text('KYC: '),
                 Text(
                   user.kycStatus.toUpperCase(),
                   style:

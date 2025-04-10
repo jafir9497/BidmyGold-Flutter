@@ -192,11 +192,11 @@ class UserManagementController extends GetxController {
           ),
           TextButton(
             onPressed: () => Get.back(result: true),
-            child: Text(currentIsDisabledStatus ? 'Enable' : 'Disable'),
             style: TextButton.styleFrom(
               foregroundColor:
                   currentIsDisabledStatus ? Colors.green : Colors.red,
             ),
+            child: Text(currentIsDisabledStatus ? 'Enable' : 'Disable'),
           ),
         ],
       ),

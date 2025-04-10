@@ -36,33 +36,58 @@ class AuthService extends GetxService {
     return this;
   }
 
-  // Auth state change handler
   void _onAuthStateChanged(User? firebaseUser) async {
     if (firebaseUser == null) {
-      // User signed out
       user.value = null;
       userType.value = '';
       userData.value = {};
 
-      // Navigate to appropriate screen based on login status
-      if (GetPlatform.isWeb) {
-        Get.offAllNamed(Routes.LOGIN);
-      } else {
-        // Check if onboarding is completed
-        final onboardingComplete =
-            _storage.read('onboarding_complete') ?? false;
-        if (onboardingComplete) {
-          Get.offAllNamed(Routes.ANONYMOUS_HOME);
+      Future.microtask(() {
+        if (GetPlatform.isWeb) {
+          Get.offAllNamed(Routes.LOGIN);
         } else {
-          Get.offAllNamed(Routes.ONBOARDING);
+          final onboardingComplete =
+              _storage.read('onboarding_complete') ?? false;
+          if (onboardingComplete) {
+            Get.offAllNamed(Routes.ANONYMOUS_HOME);
+          } else {
+            Get.offAllNamed(Routes.ONBOARDING);
+          }
         }
-      }
+      });
     } else {
-      // User signed in
       user.value = firebaseUser;
       await _fetchUserData(firebaseUser.uid);
     }
   }
+
+  // Auth state change handler
+  // void _onAuthStateChanged(User? firebaseUser) async {
+  //   if (firebaseUser == null) {
+  //     // User signed out
+  //     user.value = null;
+  //     userType.value = '';
+  //     userData.value = {};
+
+  //     // Navigate to appropriate screen based on login status
+  //     if (GetPlatform.isWeb) {
+  //       Get.offAllNamed(Routes.LOGIN);
+  //     } else {
+  //       // Check if onboarding is completed
+  //       final onboardingComplete =
+  //           _storage.read('onboarding_complete') ?? false;
+  //       if (onboardingComplete) {
+  //         Get.offAllNamed(Routes.ANONYMOUS_HOME);
+  //       } else {
+  //         Get.offAllNamed(Routes.ONBOARDING);
+  //       }
+  //     }
+  //   } else {
+  //     // User signed in
+  //     user.value = firebaseUser;
+  //     await _fetchUserData(firebaseUser.uid);
+  //   }
+  // }
 
   // Fetch user data from Firestore
   Future<void> _fetchUserData(String uid) async {
@@ -104,64 +129,112 @@ class AuthService extends GetxService {
     }
   }
 
-  // Navigate based on user profile completion
   void _navigateBasedOnUserProfile() {
-    // Get current route
     final currentRoute = Get.currentRoute;
 
-    // If user data is empty or missing required fields
     if (userData.value.isEmpty ||
         !userData.value.containsKey('name') ||
         !userData.value.containsKey('phone')) {
-      // User needs to complete profile
       if (currentRoute != Routes.USER_DETAILS) {
-        Get.offAllNamed(Routes.USER_DETAILS);
+        Future.microtask(() => Get.offAllNamed(Routes.USER_DETAILS));
       }
       return;
     }
 
-    // Check if KYC is completed
     final kycSubmitted = userData.value['kycSubmitted'] ?? false;
     if (!kycSubmitted) {
-      // User needs to complete KYC
       if (currentRoute != Routes.KYC_UPLOAD) {
-        Get.offAllNamed(Routes.KYC_UPLOAD);
+        Future.microtask(() => Get.offAllNamed(Routes.KYC_UPLOAD));
       }
       return;
     }
 
-    // User profile is complete, go to dashboard
     if (currentRoute != Routes.HOME) {
-      Get.offAllNamed(Routes.HOME);
+      Future.microtask(() => Get.offAllNamed(Routes.HOME));
     }
   }
 
+  // Navigate based on user profile completion
+  // void _navigateBasedOnUserProfile() {
+  //   // Get current route
+  //   final currentRoute = Get.currentRoute;
+
+  //   // If user data is empty or missing required fields
+  //   if (userData.value.isEmpty ||
+  //       !userData.value.containsKey('name') ||
+  //       !userData.value.containsKey('phone')) {
+  //     // User needs to complete profile
+  //     if (currentRoute != Routes.USER_DETAILS) {
+  //       Get.offAllNamed(Routes.USER_DETAILS);
+  //     }
+  //     return;
+  //   }
+
+  //   // Check if KYC is completed
+  //   final kycSubmitted = userData.value['kycSubmitted'] ?? false;
+  //   if (!kycSubmitted) {
+  //     // User needs to complete KYC
+  //     if (currentRoute != Routes.KYC_UPLOAD) {
+  //       Get.offAllNamed(Routes.KYC_UPLOAD);
+  //     }
+  //     return;
+  //   }
+
+  //   // User profile is complete, go to dashboard
+  //   if (currentRoute != Routes.HOME) {
+  //     Get.offAllNamed(Routes.HOME);
+  //   }
+  // }
+
   // Navigate based on pawnbroker profile completion
+  // void _navigateBasedOnPawnbrokerProfile() {
+  //   // Get current route
+  //   final currentRoute = Get.currentRoute;
+
+  //   // If pawnbroker data is empty or missing required fields
+  //   if (userData.value.isEmpty ||
+  //       !userData.value.containsKey('shopName') ||
+  //       !userData.value.containsKey('ownerName')) {
+  //     // Pawnbroker needs to complete profile
+  //     if (currentRoute != Routes.PAWNBROKER_REGISTRATION) {
+  //       Get.offAllNamed(Routes.PAWNBROKER_REGISTRATION);
+  //     }
+  //     return;
+  //   }
+
+  //   // Check if verification is in progress
+  //   final isVerified = userData.value['isVerified'] ?? false;
+  //   if (!isVerified) {
+  //     // Show verification pending screen (to be implemented)
+  //     return;
+  //   }
+
+  //   // Pawnbroker profile is complete, go to dashboard
+  //   if (currentRoute != Routes.PAWNBROKER_DASHBOARD) {
+  //     Get.offAllNamed(Routes.PAWNBROKER_DASHBOARD);
+  //   }
+  // }
+
   void _navigateBasedOnPawnbrokerProfile() {
-    // Get current route
     final currentRoute = Get.currentRoute;
 
-    // If pawnbroker data is empty or missing required fields
     if (userData.value.isEmpty ||
         !userData.value.containsKey('shopName') ||
         !userData.value.containsKey('ownerName')) {
-      // Pawnbroker needs to complete profile
       if (currentRoute != Routes.PAWNBROKER_REGISTRATION) {
-        Get.offAllNamed(Routes.PAWNBROKER_REGISTRATION);
+        Future.microtask(() => Get.offAllNamed(Routes.PAWNBROKER_REGISTRATION));
       }
       return;
     }
 
-    // Check if verification is in progress
     final isVerified = userData.value['isVerified'] ?? false;
     if (!isVerified) {
-      // Show verification pending screen (to be implemented)
+      // Verification pending logic (to be implemented)
       return;
     }
 
-    // Pawnbroker profile is complete, go to dashboard
     if (currentRoute != Routes.PAWNBROKER_DASHBOARD) {
-      Get.offAllNamed(Routes.PAWNBROKER_DASHBOARD);
+      Future.microtask(() => Get.offAllNamed(Routes.PAWNBROKER_DASHBOARD));
     }
   }
 
@@ -190,7 +263,7 @@ class AuthService extends GetxService {
         },
       );
     } catch (e) {
-      throw e;
+      rethrow;
     } finally {
       isLoading.value = false;
     }
@@ -219,7 +292,7 @@ class AuthService extends GetxService {
       // Remove verification ID from storage
       _storage.remove('phone_verification_id');
     } catch (e) {
-      throw e;
+      rethrow;
     } finally {
       isLoading.value = false;
     }
@@ -230,7 +303,7 @@ class AuthService extends GetxService {
     try {
       await _auth.signOut();
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

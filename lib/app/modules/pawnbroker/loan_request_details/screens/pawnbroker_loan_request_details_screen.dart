@@ -6,7 +6,7 @@ import '../../../../translations/app_translations.dart';
 
 class PawnbrokerLoanRequestDetailsScreen
     extends GetView<PawnbrokerLoanRequestDetailsController> {
-  const PawnbrokerLoanRequestDetailsScreen({Key? key}) : super(key: key);
+  const PawnbrokerLoanRequestDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -217,11 +217,12 @@ class PawnbrokerLoanRequestDetailsScreen
                                     loadingBuilder:
                                         (context, child, loadingProgress) {
                                       if (loadingProgress == null) return child;
-                                      return Center(
+                                      return const Center(
                                           child: CircularProgressIndicator());
                                     },
                                     errorBuilder: (context, error, stackTrace) {
-                                      return Center(child: Icon(Icons.error));
+                                      return const Center(
+                                          child: Icon(Icons.error));
                                     },
                                   ),
                                 ),

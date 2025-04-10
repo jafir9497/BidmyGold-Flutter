@@ -6,7 +6,7 @@ import '../../../data/models/notification_model.dart';
 import '../controllers/notifications_controller.dart';
 
 class NotificationsScreen extends GetView<NotificationsController> {
-  const NotificationsScreen({Key? key}) : super(key: key);
+  const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

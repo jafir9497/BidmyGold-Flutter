@@ -7,12 +7,12 @@ import '../models/activity_log.dart';
 import '../models/admin_log_entry.dart';
 
 class AdminLogsScreen extends GetView<AdminLogsController> {
-  const AdminLogsScreen({Key? key}) : super(key: key);
+  const AdminLogsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Define local function that wraps the void call in a Future
-    Future<void> _handleRefresh() async {
+    Future<void> handleRefresh() async {
       controller.refreshLogs(); // Call the void function
       // Return a completed Future<void> to satisfy RefreshIndicator
       return Future.value();
@@ -43,13 +43,13 @@ class AdminLogsScreen extends GetView<AdminLogsController> {
           return Center(
             child: Text(
               'no_admin_logs_found'.tr,
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
           );
         }
         return RefreshIndicator(
           // Pass the local function reference
-          onRefresh: _handleRefresh,
+          onRefresh: handleRefresh,
           child: NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification scrollInfo) {
               if (!controller.isLoading.value &&
@@ -130,7 +130,7 @@ class AdminLogsScreen extends GetView<AdminLogsController> {
             TextField(
               decoration: InputDecoration(
                 labelText: 'filter_by_admin_id_label'.tr,
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
               ),
               onChanged: (value) {
                 controller.setAdminFilter(value);
